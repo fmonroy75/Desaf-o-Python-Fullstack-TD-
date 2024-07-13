@@ -1,0 +1,56 @@
+body * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    font-family: 'Cabin', sans-serif;
+    font-weight: 300;
+    
+}
+
+.custom-tooltip {
+    --bs-tooltip-bg: black;/*var(--bd-violet-bg);*/
+    --bs-tooltip-color: white;/*var(--bs-white);*/
+  }
+
+
+.separator {
+    height: 2px;
+    background-color: #dee2e6;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+/*estilos barra de navegacion*/
+.titulo{
+    font-family: 'lobster';
+    font-weight: 400;
+    font-size: 2rem;
+}
+.nav-list{
+    font-family: 'Cabin', sans-serif;
+    font-weight: 300;
+}
+
+/*estilos texto , botones*/
+.text-p{
+    font-size: 1.8em;
+}
+#nav{
+    background-color: #373A3C;
+  }
+  
+
+/*seccion suscripcion*/
+
+.seccion-suscripcion{
+    background-color: #DC3545;
+    color: #fff;
+}
+
+footer{
+    background-color: #373A3C;
+    color: #fff;
+}
