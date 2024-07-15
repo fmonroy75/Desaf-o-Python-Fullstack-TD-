@@ -19,5 +19,4 @@ información asociada.
 -- HTML
 
 ### Comentarios
-Se hicieron algunos ajustes en diseño con respecto a la maquetan final HTML en tiempo real en el panel de la derecha.
-
+Se hicieron algunos ajustes en diseño con respecto a la [maqueta](https://github.com/fmonroy75/Desafio-Python-TD-2024/tree/main/ViajesChile/assets/doc)
