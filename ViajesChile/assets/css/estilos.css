@@ -1,0 +1,21 @@
+body {
+  font-family: "Raleway", sans-serif;
+  background-color: black;
+}
+
+/*Destacados*/
+
+#Section-Destacados .card-img-top {
+  height: 150px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+/* Contacto */
+
+#Contacto form label {
+  font-weight: 700;
+  color: #373a3c;
+}
+
+
