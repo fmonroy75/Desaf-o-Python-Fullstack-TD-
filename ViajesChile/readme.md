@@ -2,7 +2,7 @@
 
 ## Requirimientos:
 La página debe contener las siguientes secciones:
-<ul<<li>Una barra de navegación fija en la parte superior de la pantalla, con el logo y links a
+<ul><li>Una barra de navegación fija en la parte superior de la pantalla, con el logo y links a
 diferentes secciones de la página, haciendo un smooth scroll.</li>
 <li>Un carousel que muestre las imágenes destacadas del sitio.</li>
 <li>Una sección de presentación, utilizando favicons y 3 párrafos (debe desaparecer en
@@ -12,6 +12,7 @@ información asociada.</li>
 <li>Una sección de formulario de contacto.</li>
 <li>Una sección footer con links a las redes sociales.
 </li></ul>
+
 ## Herramientas utilizadas
 <ul><li>Bootstrap</li>
 <li>CSS</li>
