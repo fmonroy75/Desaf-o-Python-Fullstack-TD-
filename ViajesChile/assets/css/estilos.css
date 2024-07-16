@@ -2,6 +2,27 @@ body {
   font-family: "Raleway", sans-serif;
   background-color: black;
 }
+/*titulo*/
+.titulo{
+  font-family: 'lobster';
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+/*tooltips*/
+.custom-tooltip {
+  --bs-tooltip-bg: rgb(219, 241, 119);/*var(--bd-violet-bg);*/
+  --bs-tooltip-color: rgb(17, 2, 2);/*var(--bs-white);*/
+}
+
+/*barra de navegacion*/
+.nav-link {
+  font-size: 12pt; /* Tamaño de letra normal */
+}
+
+.collapsed .nav-link {
+  font-size: 10pt; /* Tamaño de letra cuando está colapsado */
+}
 
 /*Destacados*/
 
@@ -15,7 +36,9 @@ body {
 
 #Contacto form label {
   font-weight: 700;
-  color: #373a3c;
+  color: #3b3c37;
 }
 
-
+a{
+  text-decoration: none;
+}

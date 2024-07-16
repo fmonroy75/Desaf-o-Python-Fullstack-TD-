@@ -10,3 +10,11 @@ $('#enviar_correo').click(function () {
     alert("El correo fue enviado correctamente...")
 })
 
+
+
+//js para colapsar menu
+$(document).ready(function() {
+    $('.nav-link').on('click', function() {
+      $('.navbar-collapse').collapse('hide');
+    });
+  });
