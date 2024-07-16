@@ -19,5 +19,6 @@ información asociada.</li>
 <li>JQuery</li>
 <li>HTML</li>
 </ul>
+
 ### Comentarios
 Se hicieron algunos ajustes en diseño con respecto a la [maqueta](https://github.com/fmonroy75/Desafio-Python-TD-2024/tree/main/ViajesChile/assets/doc)
