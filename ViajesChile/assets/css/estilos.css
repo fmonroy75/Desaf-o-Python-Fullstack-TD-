@@ -24,6 +24,11 @@ body {
   font-size: 10pt; /* Tamaño de letra cuando está colapsado */
 }
 
+/*cards*/
+#dest{
+  width: 320px;
+}
+
 /*Destacados*/
 
 #Section-Destacados .card-img-top {
