@@ -71,10 +71,12 @@ fórmula original de utilidades
 𝑈𝑡𝑖𝑙𝑖𝑑𝑎𝑑𝑒𝑠 = 𝑃 * 𝑈 − 𝐺𝑇
 Ahora, debes crear una nueva función en la que se pida (por medio de input()) los
 siguientes datos:
-● precio de suscripción P
-● número de usuarios normales U
-● gastos GT
-● utilidades del año anterior Uanterior
+<ul>
+<li>● precio de suscripción P</li>
+<li>● número de usuarios normales U</li>
+<li>● gastos GT</li>
+<li>● utilidades del año anterior Uanterior</li></ul>
+
 El programa debe calcular las utilidades actuales Uactuales y mostrar la razón entre las
 utilidades actuales y las del año anterior
 𝑅𝑎𝑧ó𝑛 =𝑈𝑎𝑐𝑡𝑢𝑎𝑙𝑒𝑠/𝑈𝑎𝑛𝑡𝑒𝑟𝑖𝑜𝑟
