@@ -4,8 +4,11 @@ def print_pregunta(enunciado, alternativas):
     
     # Imprimir enunciado y alternativas
     ###############################################################
-    pass
-    
+    print(enunciado)
+        
+    letras = ['A', 'B', 'C', 'D']
+    for i, alt in enumerate(alternativas):
+        print(f"{letras[i]}. {alt[0]}")
     
     
     

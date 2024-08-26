@@ -2,18 +2,9 @@
 def validate(opciones, eleccion):
     # Definir validación de eleccion
     ##########################################################################
-    while True:
-        es_valida = False
-        for opcion in opciones:
-            if eleccion == opcion:
-                es_valida = True
-                break
-        
-        if es_valida:
-            break
-        else:
-            print(f'---->Opción no válida, ingrese una de las opciones válidas: {opciones}')
-            eleccion = input("Ingresa una opción: ")
+    while eleccion not in opciones:
+        print(f'Opción no válida, ingrese una de las opciones válidas: {opciones}')
+        eleccion = input("Ingresa una opción: ")
     
     ##########################################################################
     return eleccion
