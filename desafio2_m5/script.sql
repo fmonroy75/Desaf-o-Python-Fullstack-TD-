@@ -1,3 +1,5 @@
+drop table if exists inscritos;
+drop database if exists desafio2_Francisco_Monroy_666;
 
 
 CREATE DATABASE desafio2_Francisco_Monroy_666;
