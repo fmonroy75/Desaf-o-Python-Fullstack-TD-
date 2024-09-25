@@ -3,6 +3,7 @@ drop database if exists desafio2_Francisco_Monroy_666;
 
 
 CREATE DATABASE desafio2_Francisco_Monroy_666;
+\c desafio2_francisco_monroy_666;
 
 CREATE TABLE IF NOT EXISTS INSCRITOS(cantidad INT, fecha DATE, fuente
 VARCHAR);
