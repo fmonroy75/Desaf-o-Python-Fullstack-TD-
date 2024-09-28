@@ -1,0 +1,232 @@
+--******************************************************************
+--CORREGIR LA RUTA DE LOS ARCHIVOS, POR SEGURIDAD SE DEJÓ COMO C:\RUTA
+--******************************************************************
+
+--1.-
+drop database if exists peliculas;
+CREATE DATABASE peliculas;
+\c peliculas;
+
+
+--2.-
+CREATE TABLE peliculas (
+	id int4 NULL,
+	Pelicula varchar(64) NULL,
+	"Año estreno" int4 NULL,
+	Director varchar(50) NULL
+);
+
+CREATE TABLE reparto (
+	id_pelicula int4 NULL,
+	actor varchar(50) NULL
+);
+
+\COPY reparto (id_pelicula ,actor) FROM 'C:\RUTA\reparto.csv'  DELIMITER ',' CSV HEADER;
+
+\COPY peliculas( id, Pelicula, "Año estreno",Director) FROM 'C:\RUTA\peliculas.csv' DELIMITER ',' CSV HEADER;
+
+--3.-
+select id from peliculas where Pelicula = 'Titanic';
+/* id
+----
+  2*/
+--4.-
+select * from reparto r inner join peliculas p on r.id_pelicula =p.id and p.Pelicula = 'Titanic';
+/*
+ id_pelicula |       actor       | id | pelicula | Año estreno |   director
+-------------+-------------------+----+----------+-------------+---------------
+           2 | Leonardo DiCaprio |  2 | Titanic  |        1997 | James Cameron
+           2 | Kate Winslet      |  2 | Titanic  |        1997 | James Cameron
+           2 | Billy Zane        |  2 | Titanic  |        1997 | James Cameron
+           2 | Kathy Bates       |  2 | Titanic  |        1997 | James Cameron
+           2 | Frances Fisher    |  2 | Titanic  |        1997 | James Cameron
+           2 | Bernard Hill      |  2 | Titanic  |        1997 | James Cameron
+           2 | Jonathan Hyde     |  2 | Titanic  |        1997 | James Cameron
+           2 | Danny Nucci       |  2 | Titanic  |        1997 | James Cameron
+           2 | David Warner      |  2 | Titanic  |        1997 | James Cameron
+           2 | Bill Paxton       |  2 | Titanic  |        1997 | James Cameron
+           2 | Gloria Stuart     |  2 | Titanic  |        1997 | James Cameron
+           2 | Victor Garber     |  2 | Titanic  |        1997 | James Cameron
+           2 | Suzy Amis         |  2 | Titanic  |        1997 | James Cameron
+(13 filas)
+
+*/
+--5.-
+select p.* from reparto r 
+inner join peliculas p on r.id_pelicula =p.id and
+upper(r.actor)=upper('Harrison Ford');
+/*
+ id |                   pelicula                    | Año estreno |       director
+----+-----------------------------------------------+-------------+----------------------
+ 48 | Star Wars. Episodio IV: Una nueva esperanza   |        1977 | George Lucas
+ 59 | Indiana Jones y la ├║ltima cruzada            |        1989 | Steven Spielberg
+ 63 | En busca del arca perdida                     |        1981 | Steven Spielberg
+ 67 | Star Wars. Episodio V: El imperio contraataca |        1980 | Irvin Kershner
+ 69 | Star Wars. Episodio VI: El retorno del Jedi   |        1983 | Richard Marquand
+ 87 | Blade Runner                                  |        1982 | Ridley Scott
+ 88 | Apocalypse Now                                |        1979 | Francis Ford Coppola
+ 97 | Indiana Jones y el templo maldito             |        1984 | Steven Spielberg
+(8 filas)
+*/
+
+--6.-
+select * from peliculas p 
+where "Año estreno" between 1990 and 1999
+order by Pelicula asc 
+limit 100;
+
+/*
+ id |                  pelicula                  | Año estreno |       director
+----+--------------------------------------------+-------------+-----------------------
+ 76 | American Beauty                            |        1999 | Sam Mendes
+ 20 | American History X                         |        1998 | Tony Kaye
+  9 | Braveheart                                 |        1995 | Mel Gibson
+  7 | Cadena perpetua                            |        1994 | Frank Darabont
+ 12 | Eduardo Manostijeras                       |        1990 | Tim Burton
+ 27 | El club de la pelea                        |        1999 | David Fincher
+ 68 | El Padrino. Parte III                      |        1990 | Francis Ford Coppola
+ 75 | El profesional                             |        1994 | Luc Besson
+ 22 | El sexto sentido                           |        1999 | M. Night Shyamalan
+ 45 | El show de Truman                          |        1998 | Peter Weir
+ 25 | El silencio de los corderos                |        1991 | Jonathan Demme
+ 61 | Entrevista con el vampiro                  |        1994 | Neil Jordan
+  1 | Forest Gump                                |        1994 | Robert Zemeckis
+ 42 | Hombres de negro                           |        1997 | Barry Sonnenfeld
+ 10 | La lista de Schindler                      |        1993 | Steven Spielberg
+ 31 | La milla verde                             |        1999 | Frank Darabont
+ 30 | Matrix                                     |        1999 | Andy y Lana Wachowski
+ 89 | Mejor... imposible                         |        1997 | James L. Brooks
+ 29 | Parque Jur├ísico                           |        1993 | Steven Spielberg
+ 47 | Pesadilla antes de navidad                 |        1993 | Henry Selick
+ 23 | Pulp Fiction                               |        1994 | Quentin Tarantino
+ 14 | Salvar al soldado Ryan                     |        1998 | Steven Spielberg
+ 39 | Seven                                      |        1995 | David Fincher
+ 86 | Star Wars. Episodio I: La amenaza fantasma |        1999 | George Lucas
+ 40 | Terminator 2: el juicio final              |        1991 | James Cameron
+  2 | Titanic                                    |        1997 | James Cameron
+ 11 | Toy Story                                  |        1995 | John Lasseter
+ 46 | Toy Story 2                                |        1999 | John Lasseter
+ 79 | Trainspotting                              |        1996 | Danny Boyle
+ 98 | Uno de los nuestros                        |        1990 | Martin Scorsese
+(30 filas)
+*/
+
+--7.-
+select Pelicula,length(Pelicula) as Longitud_titulo from peliculas p ;
+/*
+                       pelicula                        | longitud_titulo
+-------------------------------------------------------+-----------------
+ Forest Gump                                           |              11
+ Titanic                                               |               7
+ El Padrino                                            |              10
+ Gladiator                                             |               9
+ El Se├▒or de los anillos: El retorno del rey          |              44
+ El caballero oscuro                                   |              19
+ Cadena perpetua                                       |              15
+ Piratas del Caribe: La maldici├│n de la Perla Negra   |              51
+ Braveheart                                            |              10
+ La lista de Schindler                                 |              21
+ Toy Story                                             |               9
+ Eduardo Manostijeras                                  |              20
+ El Se├▒or de los anillos: La comunidad del anillo     |              49
+ Salvar al soldado Ryan                                |              22
+ Regreso al futuro                                     |              17
+ Monstruos S.A.                                        |              14
+ Buscando a Nemo                                       |              15
+ El Se├▒or de los anillos: Las dos torres              |              40
+ Harry Potter y el Prisionero de Azkaban               |              39
+ American History X                                    |              18
+ 300                                                   |               3
+ El sexto sentido                                      |              16
+ Pulp Fiction                                          |              12
+ V de Vendetta                                         |              13
+ El silencio de los corderos                           |              27
+ Rocky                                                 |               5
+ El club de la pelea                                   |              19
+ E.T                                                   |               3
+ Parque Jur├ísico                                      |              16
+ Matrix                                                |               6
+ La milla verde                                        |              14
+ Ratatouille                                           |              11
+ Grease                                                |               6
+ El Padrino. Parte II                                  |              20
+ Wall-E                                                |               6
+ Iron Man                                              |               8
+ El exorcista                                          |              12
+ Piratas del Caribe: El cofre del hombre muerto        |              46
+ Seven                                                 |               5
+ Terminator 2: el juicio final                         |              29
+ El resplandor                                         |              13
+ Hombres de negro                                      |              16
+ Spider-Man                                            |              10
+ Regreso al futuro II                                  |              20
+ El show de Truman                                     |              17
+ Toy Story 2                                           |              11
+ Pesadilla antes de navidad                            |              26
+ Star Wars. Episodio IV: Una nueva esperanza           |              43
+ Saw                                                   |               3
+ Terminator                                            |              10
+ Kill Bill Vol. 1                                      |              16
+ Lo que el viento se llev├│                            |              26
+ El Laberinto del Fauno                                |              22
+ Los incre├¡bles                                       |              15
+ El viaje de Chihiro                                   |              19
+ El precio del poder                                   |              19
+ King Kong                                             |               9
+ Ben-Hur                                               |               7
+ Indiana Jones y la ├║ltima cruzada                    |              34
+ Infiltrados                                           |              11
+ Entrevista con el vampiro                             |              25
+ Batman Begins                                         |              13
+ En busca del arca perdida                             |              25
+ Star Wars. Episodio III: La venganza de los Sith      |              48
+ Alien                                                 |               5
+ El bueno el feo y el malo                             |              25
+ Star Wars. Episodio V: El imperio contraataca         |              45
+ El Padrino. Parte III                                 |              21
+ Star Wars. Episodio VI: El retorno del Jedi           |              43
+ Escuela de Rock                                       |              15
+ El planeta de los simios                              |              24
+ Rambo                                                 |               5
+ Full Metal Jacket                                     |              17
+ Tibur├│n                                              |               8
+ El profesional                                        |              14
+ American Beauty                                       |              15
+ Casablanca                                            |              10
+ Am├®lie                                               |               7
+ Trainspotting                                         |              13
+ axi driver                                            |              10
+ Alguien vol├│ sobre el nido del cuco                  |              36
+ Kill Bill Vol. 2                                      |              16
+ Spider-Man 2                                          |              12
+ X-Men 2                                               |               7
+ Transformers                                          |              12
+ Star Wars. Episodio I: La amenaza fantasma            |              42
+ Blade Runner                                          |              12
+ Apocalypse Now                                        |              14
+ Mejor... imposible                                    |              18
+ La vida de Brian                                      |              16
+ El libro de la selva                                  |              20
+ Los cazafantasmas                                     |              17
+ Sweeney Todd: El barbero diab├│lico de la calle Fleet |              53
+ Ocean's Eleven                                        |              14
+ Blancanieves y los siete enanitos                     |              33
+ Predator                                              |               8
+ Indiana Jones y el templo maldito                     |              33
+ Uno de los nuestros                                   |              19
+ Mouling Rouge                                         |              13
+ Psicosis                                              |               8
+(100 filas)
+*/
+
+
+--8.-
+select Pelicula,length(Pelicula) as Longitud_titulo from peliculas p order by  Longitud_titulo desc limit 1; 
+
+/*
+
+                       pelicula                        | longitud_titulo
+-------------------------------------------------------+-----------------
+ Sweeney Todd: El barbero diab├│lico de la calle Fleet |              53
+(1 fila)
+*/
