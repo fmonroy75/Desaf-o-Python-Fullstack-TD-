@@ -28,10 +28,14 @@ nombrado para la consulta como “longitud_titulo”.
 
 
 ### Pasos previos
-Crear Database desafio2_Francisco_Monroy_666;
 
 Cargar Datos, de acuerdo a:
 loas archivos csv que se encuentran en el repositorio
+
+Script contempla la carga de datos de desde la terminal, SE DEBE corregir la ruta de los archivos
+
+*** precaucion ***
+antes de crear la base de datos, el script elimina la base de datos peliculas
 
 ## Prerrequisitos o Dependencias
 Sistema Operativo  Windows 10, linux, Mac
