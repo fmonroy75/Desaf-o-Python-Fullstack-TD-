@@ -12,10 +12,15 @@ HTML.
 
 ### Pasos previos
 python -m venv vdjango
+
 .\vdjango\Scripts\activate
+
 pip install django
+
 django-admin --version
+
 django-admin startproject desafio1_m6
+
 pip freeze > requirements.txt
 
 python manage.py runserver
